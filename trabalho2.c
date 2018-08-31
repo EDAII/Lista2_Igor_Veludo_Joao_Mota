@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define MAX 30
+#define MAX 40
 
 int mostraMenu();
 void preencheVet(int *vetor);
@@ -89,6 +89,9 @@ void bubbleSort(int *vetor){
         vetor[i + 1] = aux;
       }
     }
+    getchar();
+    system("clear");
+    imprimeGrafico(vetor);
   }while(sentinela == 1);
   printf("Vetor ordenado com Bubble Sort:\n");
   imprimeVet(vetor);
@@ -109,6 +112,9 @@ void selectionSort(int *vetor){
       vetor[i] = vetor[menorValor];
       vetor[menorValor] = aux;
     }
+    getchar();
+    system("clear");
+    imprimeGrafico(vetor);
   }
   printf("Vetor ordenado com Selection Sort:\n");
   imprimeVet(vetor);
@@ -123,6 +129,9 @@ void insertionSort(int *vetor){
       vetor[j] = vetor[j - 1];
       vetor[j - 1] = aux;
       j--;
+      getchar();
+      system("clear");
+      imprimeGrafico(vetor);
     }
   }
   printf("Vetor ordenado com Insertion Sort:\n");
