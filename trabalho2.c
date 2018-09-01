@@ -5,6 +5,7 @@
 #include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 #define MAX 40
 
@@ -77,7 +78,7 @@ void preencheVet(int *vetor){
 
 void bubbleSort(int *vetor){
   int i, aux;
-  int sentinela = 0;
+  int sentinela = 0,iteracoes = 0;
 
   do{
     sentinela = 0;
@@ -87,18 +88,20 @@ void bubbleSort(int *vetor){
         aux = vetor[i];
         vetor[i] = vetor[i + 1];
         vetor[i + 1] = aux;
+        iteracoes++;
       }
     }
-    getchar();
+    sleep(1);
     system("clear");
     imprimeGrafico(vetor);
   }while(sentinela == 1);
   printf("Vetor ordenado com Bubble Sort:\n");
   imprimeVet(vetor);
+  printf("numero de iteracoes: %d",iteracoes);
 }
 
 void selectionSort(int *vetor){
-  int menorValor, aux, i, j;
+  int menorValor, aux, i, j,iteracoes = 0;
 
   for(i = 0 ; i < MAX ; i++){
     menorValor = i;
@@ -111,17 +114,19 @@ void selectionSort(int *vetor){
       aux = vetor[i];
       vetor[i] = vetor[menorValor];
       vetor[menorValor] = aux;
+      iteracoes++;
     }
-    getchar();
+    sleep(1);
     system("clear");
     imprimeGrafico(vetor);
   }
   printf("Vetor ordenado com Selection Sort:\n");
   imprimeVet(vetor);
+  printf("numero de iteracoes: %d",iteracoes);
 }
 
 void insertionSort(int *vetor){
-  int i, j, aux;
+  int i, j, aux,iteracoes = 0;
   for(i = 1 ; i < MAX ; i++){
     j = i;
     while((j != 0) && (vetor[j] < vetor[j - 1])){
@@ -129,9 +134,11 @@ void insertionSort(int *vetor){
       vetor[j] = vetor[j - 1];
       vetor[j - 1] = aux;
       j--;
-      getchar();
+      iteracoes++;
+      sleep(1);
       system("clear");
       imprimeGrafico(vetor);
+      printf("numero de iteracoes: %d",iteracoes);
     }
   }
   printf("Vetor ordenado com Insertion Sort:\n");
